@@ -229,8 +229,8 @@ body {
         z-index: 5;
         width: 100%;
         padding: 15px 20px;
-        border: 1px solid #f3f3f3;
-        background-color: rgba($color: white, $alpha: 0.4);
+        border: 1px solid rgba($color: #299d3a, $alpha: 0.2);
+        background-color: transparent;
         border-radius: 8px;
         margin-bottom: 15px;
         transition: background-color 0.2s ease-in-out, border 0.2s ease-in-out;

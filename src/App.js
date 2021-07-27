@@ -56,8 +56,8 @@ function App() {
       <div className="content">
         {isChoiseItem ? (
           <div>
-            <h1>Код 1001</h1>
-            <p className="describeText">Снятие со счета ЮЛ денежных средств в наличной форме в случаях, не обусловленных характером его хозяйственной деятельности</p>
+            <h1>{isChoiseItem.code}</h1>
+            <p className="describeText">{isChoiseItem.description}</p>
             <div className="contentPapa">
               <div className="card">
                 <input type="text" placeholder="Логин EKS"/>
