@@ -7,8 +7,7 @@ Install NodeJS LTS version from [https://nodejs.org/](url)
 ```
 git clone *repository*
 cd folder-with-project
-npm install node-sass@4.14.1
-npm install axios
+npm i
 npm start
 ```
 
