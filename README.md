@@ -5,7 +5,7 @@
 Install NodeJS LTS version from [https://nodejs.org/](url)
 
 ```
-git clone *repository*
+git clone https://github.com/ekertn7/job-amk-web-client.git
 cd folder-with-project
 npm i
 npm start
