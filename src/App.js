@@ -33,7 +33,7 @@ function App() {
     axios.get("https://60f13ced38ecdf0017b0fb06.mockapi.io/amk-indicators").then((response) => {
       setIndicators(response.data);
     })
-    axios.get("https://60f13ced38ecdf0017b0fb06.mockapi.io/amk-card-types").then((response) => {
+    axios.get("https://60f13ced38ecdf0017b0fb06.mockapi.io/amk-cards").then((response) => {
       setCards(response.data);
     })
   }, []);
@@ -67,6 +67,7 @@ function App() {
                   .map((card) => (
                     <Card
                       key={card.id}
+                      // class={card.class}
                       type={card.type}
                       text={card.text}
                     />
@@ -74,15 +75,15 @@ function App() {
                 )
               }
               
-              <div className="card">
+              {/* <div className="card">
                 <button className="buttonMoreInfo">Сформировать отчет</button>
-              </div>
+              </div> */}
               
             </div>
           </div>
           ):(
           <div className="chioseIndicator">
-            <img src="/img/sberkot_anim-512px-32.gif" alt="Стикер выберите индикатор"></img>
+            <img src="/img/sberkot_anim-512px-32.gif" alt="Стикер сберкот ест попкорн"></img>
             <h3>Выберите индикатор мониторинга</h3>
           </div>
           )

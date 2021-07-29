@@ -223,7 +223,7 @@ body {
         color: #1eaa38;
         transition: top 0.2s ease-in-out, font-size 0.2s ease-in-out;
       }
-      input {
+      input[type=text], input[type=password] {
         width: 50%;
         position: relative;
         z-index: 5;
@@ -255,6 +255,19 @@ body {
       //   box-shadow: 0 15px 15px #f1f1f1;
       //   transform: translateY(-4px);
       // }
+      * {
+        display: none;
+      }
+    }
+    .text, .password {
+      input[type=text], input[type=password], p {
+        display: block;
+      }
+    }
+    .button {
+      button {
+        display: block;
+      }
     }
     .wrong_data {
       input {
@@ -491,7 +504,8 @@ body {
         div {
           width: calc(100% - 30px);
           p {
-            font-size: 14px;
+            height: calc(16px * 3);
+            overflow: hidden;
           }
         }
       }
