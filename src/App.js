@@ -8,6 +8,8 @@ import Card from "./components/Card"
 function App() {
   const [items, setItems] = React.useState([]);
   const [indicators, setIndicators] = React.useState([]);
+  const [cards, setCards] = React.useState([]);
+  const [cardId, setCardId] = React.useState([]);
   const [isPopupOpened, setIsPopupOpened] = React.useState(false);
   const [isChoiseItem, setIsChoiseItem] = React.useState('');
   const [searchValue, setSearchValue] = React.useState('');
@@ -18,6 +20,7 @@ function App() {
 
   const onClickChoiseItem = (item) => {
     setIsChoiseItem(item);
+    setCardId(item.cardId);
     // setSearchValue(item.code);
   }
 
@@ -29,6 +32,9 @@ function App() {
     })
     axios.get("https://60f13ced38ecdf0017b0fb06.mockapi.io/amk-indicators").then((response) => {
       setIndicators(response.data);
+    })
+    axios.get("https://60f13ced38ecdf0017b0fb06.mockapi.io/amk-card-types").then((response) => {
+      setCards(response.data);
     })
   }, []);
 
@@ -56,9 +62,14 @@ function App() {
             <h1>{isChoiseItem.code}</h1>
             <p className="describeText">{isChoiseItem.description}</p>
             <div className="contentPapa">
-              {indicators
-                  .map((indicator) => (
-                    <Card />
+              {cards
+                  .filter((card) => cardId.includes(card.id))
+                  .map((card) => (
+                    <Card
+                      key={card.id}
+                      type={card.type}
+                      text={card.text}
+                    />
                   )
                 )
               }

@@ -1,6 +1,6 @@
 import React from "react"
 
-function Menu({indicators = [], items = [], isChoiseItem, searchValue, onClickChoiseItem, item}) {
+function Menu({indicators = [], items = [], isChoiseItem, searchValue, onClickChoiseItem}) {
 
     return (
         <div className="indicatorsMenu">

@@ -1,11 +1,11 @@
 import React from "react"
 
-function Card({props}) {
+function Card({type, text}) {
 
     return (
         <div className="card">
-            <input type="text" placeholder="Логин EKS"/>
-            <p>Логин EKS</p>
+            <input type={type} placeholder={text}/>
+            <p>{text}</p>
         </div>
     )
 }
