@@ -397,8 +397,6 @@ body {
 .searchBlock {
   display: flex;
   align-items: center;
-  
-  min-width: 300px;
   position: relative;
   cursor: text;
   margin-bottom: 15px;
@@ -453,3 +451,61 @@ body {
   }
 }
 
+@media (max-width: 499px) {}
+
+@media (min-width: 500px) and (max-width: 767px) {}
+
+@media (min-width: 768px) and (max-width: 991px) {}
+
+@media (max-width: 991px) {
+  .leftWrapper {
+    width: 60%;
+    .indicatorsMenu {
+      .indicatorsPapa {
+        div {
+          width: calc(100% - 30px);
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+  .leftWrapper {
+    width: 70%;
+    .indicatorsMenu {
+      .indicatorsPapa {
+        div {
+          width: calc(50% - 30px);
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1199px) {
+  .minLeftWrapper {
+    width: 400px;
+    .indicatorsMenu {
+      .indicatorsPapa {
+        div {
+          width: calc(100% - 30px);
+          p {
+            font-size: 14px;
+          }
+        }
+      }
+    }
+  }
+  .content {
+    .contentPapa {
+      .card {
+        button {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 1200px) {}

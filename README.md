@@ -20,4 +20,5 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 - update json for cards and content
 - read [https://reactjs.net/tutorials/aspnet4.html]()
 - make different pages for "help"
+- create favicon
 - ?
