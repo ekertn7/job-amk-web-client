@@ -21,7 +21,7 @@ function App() {
     // setSearchValue(item.code);
   }
 
-  console.log(items)
+  // console.log(items)
 
   React.useEffect(() => {
     axios.get("https://60f13ced38ecdf0017b0fb06.mockapi.io/amk-items").then((response) => {
@@ -42,7 +42,6 @@ function App() {
           <button onClick={() => setSearchValue("")} style={searchValue ? {display: "block"} : {display: "none"}} className="buttonClose" title="Очистить поиск"><span></span></button>
         </div>
         <Menu 
-          // key={item.code}
           items={items}
           indicators={indicators}
           searchValue={searchValue}
