@@ -1,6 +1,6 @@
 import React from "react"
 
-function Action({props}) {
+function Card({props}) {
 
     return (
         <div className="card">
@@ -10,4 +10,4 @@ function Action({props}) {
     )
 }
 
-export default Action;
+export default Card;

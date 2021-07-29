@@ -3,8 +3,7 @@ import axios from "axios"
 
 import Popup from "./components/Popup"
 import Menu from "./components/Menu"
-
-// import Drawer from "./components/Drawer"
+import Card from "./components/Card"
 
 function App() {
   const [items, setItems] = React.useState([]);
@@ -18,7 +17,6 @@ function App() {
   }
 
   const onClickChoiseItem = (item) => {
-    // console.log(item.code)
     setIsChoiseItem(item);
     // setSearchValue(item.code);
   }
@@ -44,7 +42,7 @@ function App() {
           <button onClick={() => setSearchValue("")} style={searchValue ? {display: "block"} : {display: "none"}} className="buttonClose" title="Очистить поиск"><span></span></button>
         </div>
         <Menu 
-          // key={items}
+          // key={item.code}
           items={items}
           indicators={indicators}
           searchValue={searchValue}
@@ -59,26 +57,13 @@ function App() {
             <h1>{isChoiseItem.code}</h1>
             <p className="describeText">{isChoiseItem.description}</p>
             <div className="contentPapa">
-              <div className="card">
-                <input type="text" placeholder="Логин EKS"/>
-                <p>Логин EKS</p>
-              </div>
-              <div className="card">
-                <input type="password" placeholder="Логин EKS"/>
-                <p>Пароль EKS</p>
-              </div>
-              <div className="card">
-                <input type="text" placeholder="Логин EKS"/>
-                <p>ID транзакции</p>
-              </div>
-              <div className="card">
-                <input type="text" placeholder="Логин EKS"/>
-                <p>Что-то еще</p>
-              </div>
-              <div className="card">
-                <input type="text" placeholder="Логин EKS"/>
-                <p>И еще что-то</p>
-              </div>
+              {indicators
+                  .map((indicator) => (
+                    <Card />
+                  )
+                )
+              }
+              
               <div className="card">
                 <button className="buttonMoreInfo">Сформировать отчет</button>
               </div>
@@ -100,10 +85,6 @@ function App() {
           onClickPopupClose={() => setIsPopupOpened(false)}
         />
       }
-
-      {/* <a>Отчеты</a>
-          <a>Источники</a>
-          <a>Администрирование</a> */}
       
     </div>
   );
