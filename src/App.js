@@ -13,6 +13,8 @@ function App() {
   const [isPopupOpened, setIsPopupOpened] = React.useState(false);
   const [isChoiseItem, setIsChoiseItem] = React.useState('');
   const [searchValue, setSearchValue] = React.useState('');
+  const popupTitle = 'Вышло обновление сервиса!';
+  const popupContent = 'Здесь отобразится текст уведомления, который пользователь будет видеть в момент вывода popup на экран. При закрытиии, уведомление будет повторно отображаться на экране через определенный промежуток времени.'
 
   const onChangeSearchValue = (event) => {
     setSearchValue(event.target.value);
@@ -83,7 +85,7 @@ function App() {
           </div>
           ):(
           <div className="chioseIndicator">
-            <img src="/img/sberkot_anim-512px-32.gif" alt="Стикер сберкот ест попкорн"></img>
+            <img src="/img/sberkot_anim-512px-29.gif" alt="Стикер сберкот ест попкорн"></img>
             <h3>Выберите индикатор мониторинга</h3>
           </div>
           )
@@ -94,6 +96,8 @@ function App() {
       {isPopupOpened && 
         <Popup 
           onClickPopupClose={() => setIsPopupOpened(false)}
+          popupTitle={popupTitle}
+          popupContent={popupContent}
         />
       }
       
