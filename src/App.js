@@ -55,7 +55,7 @@ function App() {
         {menus
           .map((menu) => (
             <li key={menu.id} onClick={() => onClickChoiseMenu(menu)} className={isChoiseMenu === menu.id ? "choised" : ""}>
-              <img src={menu.img} alt={menu.name} />
+              <img src={isChoiseMenu === menu.id ? menu.imgActive : menu.img} alt={menu.name} />
               <p>{menu.name}</p>
             </li>
           ))
@@ -75,6 +75,12 @@ function App() {
           onClickChoiseItem={(item) => onClickChoiseItem(item)}
           isChoiseItem={isChoiseItem}
         />
+        {/* {items
+          .filter((item, i, a) => a.indexOf(item) === i)
+          .map((item) => (
+            <p>{item.category}</p>
+          ))
+        } */}
       </div>
       
       <div className="content">

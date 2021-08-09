@@ -401,6 +401,16 @@ body {
   .choised::after, .chiosed:hover::after {
     right: 0 !important;
   }
+  .choised:hover {
+    background-color: transparent;
+    cursor: default;
+    * {
+      cursor: default;
+    }
+    p {
+      display: none;
+    }
+  }
 }
 
 .leftWrapper {
@@ -420,14 +430,14 @@ body {
     margin-bottom: 30px;
   }
   .indicatorsMenu {
-    .indicatorsPapa:last-child {
-      div {
-        padding: 18px 24px;
-        p {
-          display: none;
-        }
-      }
-    }
+    // .indicatorsPapa:last-child {
+    //   div {
+    //     padding: 18px 24px;
+    //     p {
+    //       display: none;
+    //     }
+    //   }
+    // }
     .indicatorsPapa {
       display: flex;
       flex-wrap: wrap;
