@@ -77,32 +77,21 @@ body {
   // display: none;
   position: fixed;
   z-index: 50;
-  background-color: #fafafa;
+  background-color: #242424;
   right: 50px;
   bottom: 50px;
   border-radius: 30px;
   padding: 30px;
-  max-width: 500px;
+  width: 550px;
   box-shadow: 0px 10px 25px rgba($color: #000000, $alpha: 0.1);
   border: 1px solid rgba($color: #299d3a, $alpha: 0.1);
   h2 {
     color: #299d3a;
   }
   p {
-    color: #444;
+    color: rgb(206, 206, 206);
   }
   button {
-    border: 1px solid #f2f2f2;
-    span {
-      display: block;
-      width: 100%;
-      height: 100%;
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: 20px;
-    }
-  }
-  .buttonClose {
     position: absolute;
     right: 30px;
     top: 30px;
@@ -110,15 +99,19 @@ body {
     width: 32px;
     border-radius: 10px;
     transition: background 0.2s ease-in-out, border-color 0.2s ease-in-out;
-    background-color: #ffffff;
+    background-color: rgb(51, 51, 51);
+    // border: 1px solid #242424;
     span {
-      background-image: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg filter='url(%23filter0_d)'%3E%3Cpath d='M12.1313 10.6669L9.68253 8.21809L12.1313 5.76936C13.0755 4.82511 11.6111 3.3607 10.6669 4.30494L8.21817 6.75367L5.7692 4.30488C4.82516 3.36085 3.36081 4.8252 4.30484 5.76924L6.75382 8.21803L4.30508 10.6668C3.36084 11.611 4.82519 13.0754 5.76944 12.1312L8.21817 9.68251L10.6669 12.1313C11.6111 13.0755 13.0754 11.611 12.1313 10.6669Z' fill='%23C73C3C'/%3E%3C/g%3E%3Cdefs%3E%3Cfilter id='filter0_d' x='4' y='4' width='8.43621' height='10.4362' filterUnits='userSpaceOnUse' color-interpolation-filters='sRGB'%3E%3CfeFlood flood-opacity='0' result='BackgroundImageFix'/%3E%3CfeColorMatrix in='SourceAlpha' type='matrix' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0'/%3E%3CfeOffset dy='2'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.1 0'/%3E%3CfeBlend mode='normal' in2='BackgroundImageFix' result='effect1_dropShadow'/%3E%3CfeBlend mode='normal' in='SourceGraphic' in2='effect1_dropShadow' result='shape'/%3E%3C/filter%3E%3C/defs%3E%3C/svg%3E%0A");
+      display: block;
+      width: 100%;
+      height: 100%;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: 20px;
+      background-image: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg filter='url(%23filter0_d)'%3E%3Cpath d='M12.1313 10.6669L9.68253 8.21809L12.1313 5.76936C13.0755 4.82511 11.6111 3.3607 10.6669 4.30494L8.21817 6.75367L5.7692 4.30488C4.82516 3.36085 3.36081 4.8252 4.30484 5.76924L6.75382 8.21803L4.30508 10.6668C3.36084 11.611 4.82519 13.0754 5.76944 12.1312L8.21817 9.68251L10.6669 12.1313C11.6111 13.0755 13.0754 11.611 12.1313 10.6669Z' fill='white'/%3E%3C/g%3E%3Cdefs%3E%3Cfilter id='filter0_d' x='4' y='4' width='8.43621' height='10.4362' filterUnits='userSpaceOnUse' color-interpolation-filters='sRGB'%3E%3CfeFlood flood-opacity='0' result='BackgroundImageFix'/%3E%3CfeColorMatrix in='SourceAlpha' type='matrix' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0'/%3E%3CfeOffset dy='2'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.1 0'/%3E%3CfeBlend mode='normal' in2='BackgroundImageFix' result='effect1_dropShadow'/%3E%3CfeBlend mode='normal' in='SourceGraphic' in2='effect1_dropShadow' result='shape'/%3E%3C/filter%3E%3C/defs%3E%3C/svg%3E%0A");
     }
     &:hover {
       background-color: #d45959;
-      span {
-        background-image: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg filter='url(%23filter0_d)'%3E%3Cpath d='M12.1313 10.6669L9.68253 8.21809L12.1313 5.76936C13.0755 4.82511 11.6111 3.3607 10.6669 4.30494L8.21817 6.75367L5.7692 4.30488C4.82516 3.36085 3.36081 4.8252 4.30484 5.76924L6.75382 8.21803L4.30508 10.6668C3.36084 11.611 4.82519 13.0754 5.76944 12.1312L8.21817 9.68251L10.6669 12.1313C11.6111 13.0755 13.0754 11.611 12.1313 10.6669Z' fill='white'/%3E%3C/g%3E%3Cdefs%3E%3Cfilter id='filter0_d' x='4' y='4' width='8.43621' height='10.4362' filterUnits='userSpaceOnUse' color-interpolation-filters='sRGB'%3E%3CfeFlood flood-opacity='0' result='BackgroundImageFix'/%3E%3CfeColorMatrix in='SourceAlpha' type='matrix' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0'/%3E%3CfeOffset dy='2'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.1 0'/%3E%3CfeBlend mode='normal' in2='BackgroundImageFix' result='effect1_dropShadow'/%3E%3CfeBlend mode='normal' in='SourceGraphic' in2='effect1_dropShadow' result='shape'/%3E%3C/filter%3E%3C/defs%3E%3C/svg%3E");
-      }
     }
     &:active {
       background-color: #b12c2c;
@@ -197,7 +190,7 @@ body {
     }
     img {
       margin-bottom: 15px;
-      width: 60%;
+      width: 190px;
     }
   }
   h1, .describeText {
@@ -297,11 +290,124 @@ body {
   }
 }
 
+.menuBlock {
+  display: block;
+  position: relative;
+  z-index: 21;
+  width: 70px;
+  height: 100vh;
+  background-color: #1d1d1d;
+  li {
+    display: block;
+    width: 100%;
+    height: 70px;
+    text-align: center;
+    cursor: pointer;
+    display: flex;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s ease-in-out;
+    position: relative;
+    // overflow: hidden;
+    &::after {
+      content: "";
+      position: absolute;
+      right: -10px;
+      top: calc(50% - 10px);
+      width: 0;
+      height: 0;
+      border-top: 10px solid transparent;
+      border-bottom: 10px solid transparent; 
+      border-right:10px solid #fff;
+      transition: right 0.2s ease-in-out;
+    }
+    
+    
+    &::before {
+      content: "";
+      position: absolute;
+      bottom: -1px;
+      left: 10px;
+      right: 10px;
+      width: 50px;
+      height: 2px;
+      background-color: #252525;
+    }
+    &:last-child::before {
+      display: none;
+    }
+    p {
+      position: absolute;
+      left: 78px;
+      top: calc(50% - 25px);
+      height: 50px;
+      width: 0;
+      background-color: #292929;
+      color: #fafafa;
+      overflow: hidden;
+      // border: 1px solid rgba($color: #e7e7e7, $alpha: 1);
+      // border-left: none;
+      // border-right: none;
+      display: flex;
+      align-items: center;
+      justify-content: left;
+      padding: 0;
+      transition: width 0.2s ease-in-out, padding 0.2s ease-in-out, overflow 0.2s ease-in-out;
+      z-index: 21;
+      // border-radius: 0 16px 16px 0;
+      border-radius: 16px;
+      white-space: nowrap;
+      &::before {
+        display: none;
+        content: "";
+        position: absolute;
+        left: -8px;
+        top: calc(50% - 8px);
+        width: 0;
+        height: 0;
+        border-top: 8px solid transparent;
+        border-bottom: 8px solid transparent; 
+        border-right: 8px solid #292929;
+        transition: display 0.2s ease-in-out;
+        // z-index: 40;
+      }
+    }
+    &:hover {
+      background-color: rgba($color: #fff, $alpha: 0.05);
+      p {
+        width: 300px;
+        padding: 0 20px;
+        overflow: visible;
+        &::before {
+          display: block;
+        }
+      }
+    }
+    &:hover::after {
+      // top: calc(50% - 10px + 70px);
+      right: -5px;
+    }
+    * {
+      cursor: pointer;
+    }
+    img {
+      width: 40%;
+      height: 50%;
+      margin: 0 auto;
+    }
+    
+  }
+  .choised::after, .chiosed:hover::after {
+    right: 0 !important;
+  }
+}
+
 .leftWrapper {
   display: block;
   position: relative;
   z-index: 20;
-  width: 75%;
+  width: 72%;
   min-width: 400px;
   // max-width: 500px;
   height: 100vh;
@@ -391,6 +497,8 @@ body {
           margin-top: 15px;
           color: #444;
           transition: transform 0.2s ease-in-out;
+          height: calc(16px * 3);
+          overflow: hidden;
         }
         &:hover {
           border-color: rgba($color: #299d3a, $alpha: 0.2);
@@ -455,6 +563,12 @@ body {
     &:hover, &:focus, &:not(:placeholder-shown) {
       border-color: rgba($color: #299d3a, $alpha: 0.2);
       background-color: rgba($color: #7ed68b, $alpha: 0.05);
+    }
+  }
+  select {
+    outline: none;
+    &::-ms-expand {
+      display: none;
     }
   }
   button {

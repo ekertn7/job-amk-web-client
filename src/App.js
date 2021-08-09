@@ -9,9 +9,11 @@ function App() {
   const [items, setItems] = React.useState([]);
   const [indicators, setIndicators] = React.useState([]);
   const [cards, setCards] = React.useState([]);
+  const [menus, setMenus] = React.useState([]);
   const [cardId, setCardId] = React.useState([]);
   const [isPopupOpened, setIsPopupOpened] = React.useState(false);
   const [isChoiseItem, setIsChoiseItem] = React.useState('');
+  const [isChoiseMenu, setIsChoiseMenu] = React.useState('01');
   const [searchValue, setSearchValue] = React.useState('');
   const popupTitle = 'Вышло обновление сервиса!';
   const popupContent = 'Здесь отобразится текст уведомления, который пользователь будет видеть в момент вывода popup на экран. При закрытиии, уведомление будет повторно отображаться на экране через определенный промежуток времени.'
@@ -26,6 +28,10 @@ function App() {
     // setSearchValue(item.code);
   }
 
+  const onClickChoiseMenu = (menu) => {
+    setIsChoiseMenu(menu.id);
+  }
+
   // console.log(items)
 
   React.useEffect(() => {
@@ -38,16 +44,29 @@ function App() {
     axios.get("https://60f13ced38ecdf0017b0fb06.mockapi.io/amk-cards").then((response) => {
       setCards(response.data);
     })
+    axios.get("https://60f13ced38ecdf0017b0fb06.mockapi.io/amk-menus").then((response) => {
+      setMenus(response.data);
+    })
   }, []);
 
   return (
     <div className="wrapper clear">
+      <ul className="menuBlock">
+        {menus
+          .map((menu) => (
+            <li key={menu.id} onClick={() => onClickChoiseMenu(menu)} className={isChoiseMenu === menu.id ? "choised" : ""}>
+              <img src={menu.img} alt={menu.name} />
+              <p>{menu.name}</p>
+            </li>
+          ))
+        }
+      </ul>
       <div className={isChoiseItem ? "leftWrapper minLeftWrapper" : "leftWrapper"}>
         <h2 onClick={() => setIsPopupOpened(true)} >Индикаторы мониторинга</h2>
         <div className="searchBlock">
           <img src="/img/search.svg" alt="Поиск" />
           <input onChange={onChangeSearchValue} value={searchValue} type="text" maxLength="30" placeholder="Поиск..." />
-          <button onClick={() => setSearchValue("")} style={searchValue ? {display: "block"} : {display: "none"}} className="buttonClose" title="Очистить поиск"><span></span></button>
+          <button onClick={() => setSearchValue("")} style={searchValue ? {display: "block"} : {display: "none"}} title="Очистить поиск"><span></span></button>
         </div>
         <Menu 
           items={items}
