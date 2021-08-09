@@ -322,8 +322,6 @@ body {
       border-right:10px solid #fff;
       transition: right 0.2s ease-in-out;
     }
-    
-    
     &::before {
       content: "";
       position: absolute;
@@ -343,7 +341,7 @@ body {
       top: calc(50% - 25px);
       height: 50px;
       width: 0;
-      background-color: #292929;
+      background-color: #252525;
       color: #fafafa;
       overflow: hidden;
       // border: 1px solid rgba($color: #e7e7e7, $alpha: 1);
