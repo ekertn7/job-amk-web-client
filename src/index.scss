@@ -85,6 +85,9 @@ body {
   width: 550px;
   box-shadow: 0px 10px 25px rgba($color: #000000, $alpha: 0.1);
   border: 1px solid rgba($color: #299d3a, $alpha: 0.1);
+  transform: translateX(calc(100% + 50px));
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
   h2 {
     color: #299d3a;
   }
@@ -127,6 +130,11 @@ body {
     width: calc(100% - 92px);
     margin-bottom: 15px;
   }
+}
+
+.popupOpened {
+  transform: translateX(0);
+  opacity: 1;
 }
 
 .buttonMoreInfo {
@@ -217,7 +225,6 @@ body {
         transition: top 0.2s ease-in-out, font-size 0.2s ease-in-out;
       }
       input[type=text], input[type=password] {
-        width: 50%;
         position: relative;
         z-index: 5;
         width: 100%;
@@ -226,7 +233,9 @@ body {
         background-color: transparent;
         border-radius: 8px;
         margin-bottom: 15px;
-        transition: background-color 0.2s ease-in-out, border 0.2s ease-in-out;
+        font-size: 16px;
+        transition: background-color 0.2s ease-in-out, border 0.2s ease-in-out, color 0.2s ease-in-out;
+        cursor: text;
         &::placeholder {
           color: transparent;
         }
@@ -238,6 +247,38 @@ body {
         &:hover, &:focus {
           border-color: rgba($color: #299d3a, $alpha: 0.2);
           background-color: rgba($color: #7ed68b, $alpha: 0.05);
+        }
+      }
+      input[type=date] {
+        position: relative;
+        z-index: 5;
+        width: 100%;
+        border: 1px solid rgba($color: #299d3a, $alpha: 0.2);
+        background-color: transparent;
+        border-radius: 8px;
+        margin-bottom: 15px;
+        font-size: 16px;
+        transition: background-color 0.2s ease-in-out, border 0.2s ease-in-out;
+        cursor: text;
+        height: 52px;
+        padding: 13px 20px;
+        &::placeholder {
+          color: transparent;
+        }
+        &:focus ~ p, &:not(:placeholder-shown) ~ p {
+          top: -26px;
+          font-size: 14px;
+        }
+        &:hover, &:focus {
+          border-color: rgba($color: #299d3a, $alpha: 0.2);
+          background-color: rgba($color: #7ed68b, $alpha: 0.05);
+        }
+        // &::-webkit-datetime-edit, &::-webkit-inner-spin-button {
+        //   color: black;
+        //   // transition: color 0.2s ease-in-out;
+        // }
+        &::-webkit-clear-button {
+          display: none;
         }
       }
       button {
@@ -254,6 +295,11 @@ body {
     }
     .text, .password {
       input[type=text], input[type=password], p {
+        display: block;
+      }
+    }
+    .date {
+      input[type=date], p {
         display: block;
       }
     }
@@ -307,9 +353,13 @@ body {
     align-content: center;
     align-items: center;
     justify-content: center;
-    transition: background-color 0.2s ease-in-out;
+    transition: overflow 0.2s ease-in-out;
     position: relative;
-    // overflow: hidden;
+    border-bottom: 1px solid #252525;
+    overflow: hidden;
+    &:last-child {
+      border-bottom: none;
+    }
     &::after {
       content: "";
       position: absolute;
@@ -319,45 +369,30 @@ body {
       height: 0;
       border-top: 10px solid transparent;
       border-bottom: 10px solid transparent; 
-      border-right:10px solid #fff;
+      border-right: 10px solid #fff;
       transition: right 0.2s ease-in-out;
-    }
-    &::before {
-      content: "";
-      position: absolute;
-      bottom: -1px;
-      left: 10px;
-      right: 10px;
-      width: 50px;
-      height: 2px;
-      background-color: #252525;
-    }
-    &:last-child::before {
-      display: none;
+      z-index: 32;
     }
     p {
       position: absolute;
       left: 78px;
-      top: calc(50% - 25px);
-      height: 50px;
-      width: 0;
+      top: calc(50% - 20px);
+      height: 40px;
+      width: auto;
       background-color: #252525;
       color: #fafafa;
-      overflow: hidden;
-      // border: 1px solid rgba($color: #e7e7e7, $alpha: 1);
-      // border-left: none;
-      // border-right: none;
       display: flex;
       align-items: center;
       justify-content: left;
-      padding: 0;
-      transition: width 0.2s ease-in-out, padding 0.2s ease-in-out, overflow 0.2s ease-in-out;
-      z-index: 21;
-      // border-radius: 0 16px 16px 0;
-      border-radius: 16px;
+      padding: 20px;
+      border-radius: 12px;
       white-space: nowrap;
+      font-size: 16px;
+      z-index: 34;
+      opacity: 0;
+      transform: translateX(50px);
+      transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
       &::before {
-        display: none;
         content: "";
         position: absolute;
         left: -8px;
@@ -367,23 +402,18 @@ body {
         border-top: 8px solid transparent;
         border-bottom: 8px solid transparent; 
         border-right: 8px solid #292929;
-        transition: display 0.2s ease-in-out;
-        // z-index: 40;
+        z-index: 33;
       }
     }
     &:hover {
       background-color: rgba($color: #fff, $alpha: 0.05);
+      overflow: visible;
       p {
-        width: 300px;
-        padding: 0 20px;
-        overflow: visible;
-        &::before {
-          display: block;
-        }
+        opacity: 1;
+        transform: translateX(0);
       }
     }
     &:hover::after {
-      // top: calc(50% - 10px + 70px);
       right: -5px;
     }
     * {
@@ -391,10 +421,8 @@ body {
     }
     img {
       width: 40%;
-      height: 50%;
       margin: 0 auto;
     }
-    
   }
   .choised::after, .chiosed:hover::after {
     right: 0 !important;
@@ -505,8 +533,9 @@ body {
           margin-top: 15px;
           color: #444;
           transition: transform 0.2s ease-in-out;
-          height: calc(16px * 3);
-          overflow: hidden;
+          // height: calc(16px * 6);
+          height: auto;
+          
         }
         &:hover {
           border-color: rgba($color: #299d3a, $alpha: 0.2);
@@ -536,6 +565,10 @@ body {
       div {
         margin: 10px 15px;
         width: calc(100% - 30px);
+        p {
+          height: calc(16px * 3);
+          overflow: hidden;
+        }
       }
     }
   }
